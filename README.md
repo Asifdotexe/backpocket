@@ -5,3 +5,6 @@ The big idea behind this repository is to just house some scripts or instruction
 - project development
 - redundant chores
 or other usecases that I haven't currently thought of.
+
+### Script index
+1. [Disk Cleanup](scripts/disk_cleanup.bat): This script enables me to just clear out the developer caches after a major project or sometimes every so often, helps me clean back some space on my drives.
