@@ -1,0 +1,20 @@
+[project]
+name = "backpocket"
+version = "0.1.0"
+description = "Some scripts that I'd like to keep in my backpocket"
+readme = "README.md"
+requires-python = ">=3.12"
+
+[dependency-groups]
+dev = [
+    "prek",
+    "ruff>=0.16.9",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP"]
+ignore = ["E501"]
