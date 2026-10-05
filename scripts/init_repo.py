@@ -35,9 +35,7 @@ def main() -> None:
     args = parse_arguments()
     # If the project_name arguement is not populated, we need to impute it with current directory name.
     current_directory_name = Path.cwd().resolve().name
-    project_name = args.project_name if args.project_name else current_directory_name
-    project_name
-    pass
+    _ = args.project_name if args.project_name else current_directory_name
 
 
 if __name__ == "__main__":
