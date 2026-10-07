@@ -12,12 +12,19 @@ CLEANUP_TARGETS = [
     {
         "name": "Recycle Bin / Trash",
         "check": lambda: platform.system() == "Windows",
-        "cmd": ["powershell", "-NoProfile", "-Command", "Clear-RecycleBin -Force -ErrorAction SilentlyContinue"],
+        "cmd": [
+            "powershell",
+            "-NoProfile",
+            "-Command",
+            "Clear-RecycleBin -Force -ErrorAction SilentlyContinue",
+        ],
         "desc": "Windows Recycle Bin",
     },
     {
         "name": "PIP Cache",
-        "check": lambda: shutil.which("pip") is not None or shutil.which("python") is not None,
+        "check": lambda: (
+            shutil.which("pip") is not None or shutil.which("python") is not None
+        ),
         "cmd": ["pip", "cache", "purge"],
         "desc": "Python PIP package download cache",
     },
@@ -46,6 +53,7 @@ CLEANUP_TARGETS = [
         "desc": "PNPM unreferenced store packages",
     },
 ]
+
 
 def run_cleanup(args: argparse.Namespace) -> int:
     dry_run = getattr(args, "dry_run", False)
@@ -83,7 +91,11 @@ def run_cleanup(args: argparse.Namespace) -> int:
             if res.returncode == 0:
                 print("  [+] Success.")
             else:
-                err_msg = res.stderr.strip() or res.stdout.strip() or f"exit code {res.returncode}"
+                err_msg = (
+                    res.stderr.strip()
+                    or res.stdout.strip()
+                    or f"exit code {res.returncode}"
+                )
                 print(f"  [!] Note: {err_msg}")
             executed += 1
         except (subprocess.SubprocessError, OSError) as e:
@@ -93,6 +105,7 @@ def run_cleanup(args: argparse.Namespace) -> int:
     print(f" Cleanup complete. {executed} executed, {skipped} skipped.")
     print("=" * 60 + "\n")
     return 0
+
 
 def register_subparser(subparsers: argparse._SubParsersAction):
     parser = subparsers.add_parser(
