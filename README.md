@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/backpocket.png" alt="backpocket logo" width="180" />
+<img src="https://raw.githubusercontent.com/Asifdotexe/backpocket/main/assets/backpocket.png" alt="backpocket logo" width="180" />
 
 # backpocket
 
