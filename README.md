@@ -20,5 +20,7 @@ or other usecases that I haven't currently thought of.
 
 ### Script index
 
-1. **[Disk Cleanup](scripts/disk_cleanup.bat)**
+1. **[Disk Cleanup](src/backpocket/commands/cleanup.py)**
    > This script enables me to just clear out the developer caches after a major project or sometimes every so often, helps me clean back some space on my drives.
+2. **[Project Init](src/backpocket/commands/init.py)**
+   > This script is an additive, and non-destructive project scaffolder to set up standardized directories, development tooling, and boilerplate for the random project I create every friday.

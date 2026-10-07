@@ -7,7 +7,7 @@ import argparse
 import sys
 
 from backpocket import __version__
-from backpocket.commands import cleanup
+from backpocket.commands import cleanup, init
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -18,7 +18,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
-        "-v", "--version",
+        "-v",
+        "--version",
         action="version",
         version=f"%(prog)s {__version__}",
     )
@@ -31,8 +32,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     # Register active commands
     cleanup.register_subparser(subparsers)
+    init.register_subparser(subparsers)
 
     return parser
+
 
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
@@ -43,6 +46,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     return args.func(args)
+
 
 if __name__ == "__main__":
     sys.exit(main())
